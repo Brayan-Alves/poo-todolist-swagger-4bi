@@ -51,4 +51,13 @@ class TodoControllerTests {
                 .andExpect(jsonPath("$[0].id").value(2));
         mvc.perform(get("/api/todos/concluidas")).andExpect(content().json("[]"));
     }
+
+    @Test
+    void swaggerDocumentaOsEndpoints() throws Exception {
+        mvc.perform(get("/v3/api-docs")).andExpect(status().isOk())
+                .andExpect(jsonPath("$.info.title").value("API de Tarefas (todolist)"))
+                .andExpect(jsonPath("$.paths['/api/todos']").exists())
+                .andExpect(jsonPath("$.paths['/api/todos/{id}/conclusao']").exists());
+        mvc.perform(get("/swagger-ui/index.html")).andExpect(status().isOk());
+    }
 }

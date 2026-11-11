@@ -10,6 +10,15 @@ Projeto bimestral de POO — IFPR Cascavel. API REST de tarefas organizada em **
 
 Para rodar os testes automatizados (usam banco H2 em memória, não precisam de MySQL): `./mvnw test`
 
+## Documentação (Swagger)
+
+Com a aplicação rodando:
+
+- **Swagger UI:** `http://localhost:8080/swagger-ui.html`: dá para testar todos os endpoints pelo navegador.
+- **OpenAPI (JSON):** `http://localhost:8080/v3/api-docs`
+
+A documentação é gerada pelo `springdoc-openapi-starter-webmvc-ui` (versão 3.x, compatível com Spring Boot 4). Os textos vêm das anotações `@Tag`, `@Operation`, `@ApiResponse` e `@Parameter` do `TodoController` e do `@OpenAPIDefinition` da `TodolistApplication`.
+
 ## Estrutura
 
 ```
